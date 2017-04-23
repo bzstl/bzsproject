@@ -47,7 +47,7 @@ public class CustomRealm extends AuthorizingRealm {
 
 		// 第二步：根据用户输入的userCode从数据库查询
 		// ....
-	
+			
 
 		// 如果查询不到返回null
 		//数据库中用户账号是zhangsansan

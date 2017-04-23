@@ -39,6 +39,6 @@ public class HomeController {
 		System.out.println(exceptionClassName);
 
 		
-		return "login2";
+		return "login";
 	}
 }
