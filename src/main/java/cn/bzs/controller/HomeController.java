@@ -33,9 +33,9 @@ public class HomeController {
 	@RequestMapping("/login")
 	public String login(HttpServletRequest request){
 		
-		//Èç¹ûµÇÂ½Ê§°Ü´ÓrequestÖĞ»ñÈ¡ÈÏÖ¤Òì³£ĞÅÏ¢£¬shiroLoginFailure¾ÍÊÇshiroÒì³£ÀàµÄÈ«ÏŞ¶¨Ãû
+		//å¦‚æœç™»é™†å¤±è´¥ä»requestä¸­è·å–è®¤è¯å¼‚å¸¸ä¿¡æ¯ï¼ŒshiroLoginFailureå°±æ˜¯shiroå¼‚å¸¸ç±»çš„å…¨é™å®šå
 		String exceptionClassName = (String) request.getAttribute("shiroLoginFailure");
-		//¸ù¾İshiro·µ»ØµÄÒì³£ÀàÂ·¾¶ÅĞ¶Ï£¬Å×³öÖ¸¶¨Òì³£ĞÅÏ¢
+		//æ ¹æ®shiroè¿”å›çš„å¼‚å¸¸ç±»è·¯å¾„åˆ¤æ–­ï¼ŒæŠ›å‡ºæŒ‡å®šå¼‚å¸¸ä¿¡æ¯
 		System.out.println(exceptionClassName);
 
 		

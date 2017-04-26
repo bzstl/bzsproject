@@ -11,6 +11,7 @@
 <body>
 
 <h2>这是首页</h2>
+<a href="${ctx }logout">登出</a>
 
 <div class="container theme-showcase" role="main">
       <!-- Main jumbotron for a primary marketing message or call to action -->

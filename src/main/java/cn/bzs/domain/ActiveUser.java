@@ -1,9 +1,9 @@
 package cn.bzs.domain;
 
 public class ActiveUser implements java.io.Serializable{
-	private String userid;//用户id（主键）
-	private String usercode;// 用户账号
-	private String username;// 用户名称
+	private String userid;//鐢ㄦ埛id锛堜富閿級
+	private String usercode;// 鐢ㄦ埛璐﹀彿
+	private String username;// 鐢ㄦ埛鍚嶇О
 	public String getUserid() {
 		return userid;
 	}
