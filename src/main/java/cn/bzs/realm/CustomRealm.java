@@ -18,49 +18,48 @@ import org.apache.shiro.subject.PrincipalCollection;
  * Title: CustomRealm
  * </p>
  * <p>
- * Description:è‡ªå®šä¹‰realm
+ * Description:×Ô¶¨Òårealm
  * </p>
  * <p>
  * Company: www.itcast.com
  * </p>
  * 
- * @author ä¼ æ™º.ç‡•é’
- * @date 2015-3-23ä¸‹åˆ4:54:47
+ * @author ´«ÖÇ.ÑàÇà
+ * @date 2015-3-23ÏÂÎç4:54:47
  * @version 1.0
  */
 public class CustomRealm extends AuthorizingRealm {
 
-	// è®¾ç½®realmçš„åç§°
+	// ÉèÖÃrealmµÄÃû³Æ
 	@Override
 	public void setName(String name) {
 		super.setName("customRealm");
 	}
 
-	// ç”¨äºè®¤è¯
+	// ÓÃÓÚÈÏÖ¤
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
 
-		System.err.println("oncheck");
-		// tokenæ˜¯ç”¨æˆ·è¾“å…¥çš„
-		// ç¬¬ä¸€æ­¥ä»tokenä¸­å–å‡ºèº«ä»½ä¿¡æ¯
+		// tokenÊÇÓÃ»§ÊäÈëµÄ
+		// µÚÒ»²½´ÓtokenÖĞÈ¡³öÉí·İĞÅÏ¢
 		String userCode = (String) token.getPrincipal();
 
-		// ç¬¬äºŒæ­¥ï¼šæ ¹æ®ç”¨æˆ·è¾“å…¥çš„userCodeä»æ•°æ®åº“æŸ¥è¯¢
+		// µÚ¶ş²½£º¸ù¾İÓÃ»§ÊäÈëµÄuserCode´ÓÊı¾İ¿â²éÑ¯
 		// ....
 			
 
-		// å¦‚æœæŸ¥è¯¢ä¸åˆ°è¿”å›null
-		//æ•°æ®åº“ä¸­ç”¨æˆ·è´¦å·æ˜¯zhangsansan
+		// Èç¹û²éÑ¯²»µ½·µ»Ønull
+		//Êı¾İ¿âÖĞÓÃ»§ÕËºÅÊÇzhangsansan
 		/*if(!userCode.equals("zhangsansan")){//
 			return null;
 		}*/
 		
 		
-		// æ¨¡æ‹Ÿä»æ•°æ®åº“æŸ¥è¯¢åˆ°å¯†ç 
+		// Ä£Äâ´ÓÊı¾İ¿â²éÑ¯µ½ÃÜÂë
 		String password = "123456";
 
-		// å¦‚æœæŸ¥è¯¢åˆ°è¿”å›è®¤è¯ä¿¡æ¯AuthenticationInfo
+		// Èç¹û²éÑ¯µ½·µ»ØÈÏÖ¤ĞÅÏ¢AuthenticationInfo
 
 		SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(
 				userCode, password, this.getName());
@@ -68,26 +67,26 @@ public class CustomRealm extends AuthorizingRealm {
 		return simpleAuthenticationInfo;
 	}
 
-	// ç”¨äºæˆæƒ
+	// ÓÃÓÚÊÚÈ¨
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
 		
-		//ä» principalsè·å–ä¸»èº«ä»½ä¿¡æ¯
-		//å°†getPrimaryPrincipalæ–¹æ³•è¿”å›å€¼è½¬ä¸ºçœŸå®èº«ä»½ç±»å‹ï¼ˆåœ¨ä¸Šè¾¹çš„doGetAuthenticationInfoè®¤è¯é€šè¿‡å¡«å……åˆ°SimpleAuthenticationInfoä¸­èº«ä»½ç±»å‹ï¼‰ï¼Œ
+		//´Ó principals»ñÈ¡Ö÷Éí·İĞÅÏ¢
+		//½«getPrimaryPrincipal·½·¨·µ»ØÖµ×ªÎªÕæÊµÉí·İÀàĞÍ£¨ÔÚÉÏ±ßµÄdoGetAuthenticationInfoÈÏÖ¤Í¨¹ıÌî³äµ½SimpleAuthenticationInfoÖĞÉí·İÀàĞÍ£©£¬
 		String userCode =  (String) principals.getPrimaryPrincipal();
 		
-		//æ ¹æ®èº«ä»½ä¿¡æ¯è·å–æƒé™ä¿¡æ¯
-		//è¿æ¥æ•°æ®åº“...
-		//æ¨¡æ‹Ÿä»æ•°æ®åº“è·å–åˆ°æ•°æ®
+		//¸ù¾İÉí·İĞÅÏ¢»ñÈ¡È¨ÏŞĞÅÏ¢
+		//Á¬½ÓÊı¾İ¿â...
+		//Ä£Äâ´ÓÊı¾İ¿â»ñÈ¡µ½Êı¾İ
 		List<String> permissions = new ArrayList<String>();
-		permissions.add("user:create");//ç”¨æˆ·çš„åˆ›å»º
-		permissions.add("items:add");//å•†å“æ·»åŠ æƒé™
+		permissions.add("user:create");//ÓÃ»§µÄ´´½¨
+		permissions.add("items:add");//ÉÌÆ·Ìí¼ÓÈ¨ÏŞ
 		//....
 		
-		//æŸ¥åˆ°æƒé™æ•°æ®ï¼Œè¿”å›æˆæƒä¿¡æ¯(è¦åŒ…æ‹¬ ä¸Šè¾¹çš„permissions)
+		//²éµ½È¨ÏŞÊı¾İ£¬·µ»ØÊÚÈ¨ĞÅÏ¢(Òª°üÀ¨ ÉÏ±ßµÄpermissions)
 		SimpleAuthorizationInfo simpleAuthorizationInfo = new SimpleAuthorizationInfo();
-		//å°†ä¸Šè¾¹æŸ¥è¯¢åˆ°æˆæƒä¿¡æ¯å¡«å……åˆ°simpleAuthorizationInfoå¯¹è±¡ä¸­
+		//½«ÉÏ±ß²éÑ¯µ½ÊÚÈ¨ĞÅÏ¢Ìî³äµ½simpleAuthorizationInfo¶ÔÏóÖĞ
 		simpleAuthorizationInfo.addStringPermissions(permissions);
 
 		return simpleAuthorizationInfo;
