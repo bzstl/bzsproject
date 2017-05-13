@@ -14,7 +14,7 @@
 <body>
 
 
-<FORM id="loginform" name="loginform" action="${ctx }login.action"
+<FORM id="loginform" name="loginform" action="${ctx }login"
 		method="post">
 用户名<input type="text" id="usercode"name="username" style="WIDTH: 130px" />
 密码<input type="password" id="pwd" name="password" style="WIDTH: 130px" />

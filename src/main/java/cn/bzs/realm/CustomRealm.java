@@ -41,7 +41,6 @@ public class CustomRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(
 			AuthenticationToken token) throws AuthenticationException {
 
-		System.err.println("oncheck");
 		// token是用户输入的
 		// 第一步从token中取出身份信息
 		String userCode = (String) token.getPrincipal();

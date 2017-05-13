@@ -15,6 +15,12 @@
 	 -->
 	<mvc:annotation-driven ></mvc:annotation-driven>
 	
+	<!-- 对静态资源文件的访问， 将无法mapping到Controller的path交给default servlet handler处理 -->
+	<!-- <mvc:default-servlet-handler /> -->
+	
+	<!-- 静态资源映射 -->
+	<mvc:resources location="/assets/" mapping="/assets/**"></mvc:resources>  
+	
 	<!-- 视图解析器 -->
 	<bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/"></property>
